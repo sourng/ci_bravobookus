@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration date="2017/10/26" author="e.World Technology Ltd.">
+  <project id="{C8C6CF44-D3A2-4CDE-9B21-6EDF1C9CDF0A}" file="C:\Users\SENG Sourng\Documents\PHPMaker\Projects\bravobookus.pmp" name="bravobookus" product="PHPMaker" version="13.0" datetime="2017/10/26 01:46:45" languagefolder="phplang" userlevel="-2,&quot;Anonymous&quot;,0;">
+    <table id="ci_cookies" name="ci_cookies" caption="ci cookies" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="ci_sessions" name="ci_sessions" caption="ci sessions" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="country" name="country" caption="country" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="customers" name="customers" caption="customers" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="destinations" name="destinations" caption="destinations" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="destinations2" name="destinations2" caption="destinations 2" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="facilities" name="facilities" caption="facilities" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="facilities_hotels" name="facilities_hotels" caption="facilities hotels" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_booking" name="hotel_booking" caption="hotel booking" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_facilities" name="hotel_facilities" caption="hotel facilities" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_gallery" name="hotel_gallery" caption="hotel gallery" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_policy" name="hotel_policy" caption="hotel policy" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_room_gallery" name="hotel_room_gallery" caption="hotel room gallery" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_rooms" name="hotel_rooms" caption="hotel rooms" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotels" name="hotels" caption="hotels" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotels_gallery" name="hotels_gallery" caption="hotels gallery" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="policies" name="policies" caption="policies" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="room_types" name="room_types" caption="room types" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="selling_rooms" name="selling_rooms" caption="selling rooms" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="services" name="services" caption="services" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="settings" name="settings" caption="settings" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="user_groups" name="user_groups" caption="user groups" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="users" name="users" caption="users" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="v_last_minute_deals" name="v_last_minute_deals" caption="v last minute deals" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="v_list_hotels" name="v_list_hotels" caption="v list hotels" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+  </project>
+</configuration>

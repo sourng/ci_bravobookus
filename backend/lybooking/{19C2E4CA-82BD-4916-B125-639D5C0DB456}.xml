@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration date="2017/10/12" author="e.World Technology Ltd.">
+  <project id="{19C2E4CA-82BD-4916-B125-639D5C0DB456}" file="" name="lybooking" product="PHPMaker" version="13.0" datetime="2017/10/12 21:40:16" languagefolder="phplang" userlevel="-2,&quot;Anonymous&quot;,0;">
+    <table id="ci_cookies" name="ci_cookies" caption="ci cookies" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="ci_sessions" name="ci_sessions" caption="ci sessions" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="customers" name="customers" caption="customers" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="destinations" name="destinations" caption="destinations" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_booking" name="hotel_booking" caption="hotel booking" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_facilities" name="hotel_facilities" caption="hotel facilities" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_gallery" name="hotel_gallery" caption="hotel gallery" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_policy" name="hotel_policy" caption="hotel policy" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_room_gallery" name="hotel_room_gallery" caption="hotel room gallery" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotel_rooms" name="hotel_rooms" caption="hotel rooms" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="hotels" name="hotels" caption="hotels" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="items" name="items" caption="items" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="policies" name="policies" caption="policies" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="posts" name="posts" caption="posts" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="room_types" name="room_types" caption="room types" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="selling_rooms" name="selling_rooms" caption="selling rooms" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="user_groups" name="user_groups" caption="user groups" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="users" name="users" caption="users" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+    <table id="v_list_hotels" name="v_list_hotels" caption="v list hotels" userlevel="-2,&quot;Anonymous&quot;,0;" priv="1" />
+  </project>
+</configuration>

@@ -1,0 +1,20 @@
+<script src="<?php echo base_url(); ?>public/js/jquery.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/bootstrap.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/slimmenu.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/bootstrap-datepicker.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/bootstrap-timepicker.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/nicescroll.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/dropit.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/ionrangeslider.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/icheck.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/fotorama.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="<?php echo base_url(); ?>public/js/typeahead.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/card-payment.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/magnific.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/owl-carousel.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/fitvids.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/tweet.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/countdown.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/gridrotator.js"></script>
+        <script src="<?php echo base_url(); ?>public/js/custom.js"></script>
