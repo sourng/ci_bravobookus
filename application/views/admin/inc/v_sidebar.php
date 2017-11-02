@@ -34,6 +34,19 @@
 											<span>Guests</span>
 										</a>
 									</li>
+
+										<!-- Vechicle -->
+									<li>
+										<a href="<?php echo site_url(); ?>list-vechicles.html">
+											<span class="pull-right label label-primary">182</span>
+											<i class="fa  fa-group " aria-hidden="true"></i>
+											<span>Vechicles</span>
+										</a>
+									</li>
+
+
+
+
 									<li>
 										<a href="<?php echo site_url(); ?>profile.html">						
 											<i class="fa fa-user" aria-hidden="true"></i>

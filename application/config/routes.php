@@ -102,5 +102,10 @@ $route['remove-hotels.html'] = 'Admin_dashboard/removed_hotels';
 $route['blocked-hotels.html'] = 'Admin_dashboard/blocked_hotels';
 
 
+// Vechicles Management
+// list_vechicles
+$route['list-vechicles.html'] = 'Admin_dashboard/list_vechicles';
+
+
 // Logout
 $route['logout'] = 'Admin_Login/logout';

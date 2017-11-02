@@ -84,6 +84,36 @@ public function list_hotels()
         echo "Admin Dashboard";
     }
 
+// Manage Vechicles
+public function list_vechicles()
+    {
+      
+      $data=array();
+ $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+      $data['form_title']=$this->replaceAll($this->uri->segment(1));
+      $data['panel_title']=$this->uri->segment(1);
+
+        $data['head']='admin/head/v_head_table';
+        $data['footer']='admin/footer/v_footer_table';
+
+          $data['sidebar']='admin/inc/v_sidebar';
+          $data['sidebar_right']='admin/inc/v_sidebar_right';        
+
+        $data['header']='admin/inc/v_header';
+
+        $data['main_content']='admin/vechicles/v_list';
+        //load the view
+        $this->load->view('admin/v_admin_template', $data);
+
+        echo "Admin Dashboard";
+    }
+// End Manage Vechickes 
+
+
+
+
+
+
 
     // Guests
 public function guests()
@@ -201,9 +231,6 @@ public function invoice_print()
       // foreach ($facilities as $value) {
       //   $value.=$value;
       // }
-
-
-
         if ($param1 == 'create') {
             $data['field1']         = $this->input->post('name1');
             $data['field2'] = substr(implode('', $this->input->post('facilities')), 0);

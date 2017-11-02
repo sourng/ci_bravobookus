@@ -1,7 +1,6 @@
-<section role="main" class="content-body">
+<section role="main" class="content-body" style="margin-top: -30px;">
 					<header class="page-header">
-						<h2>User Profile</h2>
-					
+						<h2>User Profile</h2>					
 						<div class="right-wrapper pull-right">
 							<ol class="breadcrumbs">
 								<li>
