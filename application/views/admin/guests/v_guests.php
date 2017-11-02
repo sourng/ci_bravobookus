@@ -9,7 +9,7 @@
 									</a>
 								</li>								
 								<div class="btn btn-default" style="margin-right:10px;">
-									<a href="<?php  $this->uri->segment(1); ?>/<?php echo site_url(); ?>add-hotels.html"> 
+									<a href="<?php echo site_url(); ?>add-hotels.html"> 
 										<i class="fa fa-plus"></i>
 										Add
 									</a>

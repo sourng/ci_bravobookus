@@ -26,6 +26,25 @@
 											<span>Booking</span>
 										</a>
 									</li>
+									<?php 
+									foreach($sidebar_menu as $rows){
+										?>
+										<li>
+										<a href="<?php echo site_url(); ?><?php echo $rows['controller_action'] ?>">
+											<span class="pull-right label label-primary">182</span>
+											<?php echo $rows['controller_icon'] ?>
+											<span><?php echo $rows['controller_name'] ?></span>
+										</a>
+									</li>
+
+										<?php
+									}
+
+									?>
+
+
+
+
 									<!-- Guests -->
 									<li>
 										<a href="<?php echo site_url(); ?>guests.html">

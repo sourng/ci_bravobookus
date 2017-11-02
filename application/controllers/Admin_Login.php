@@ -8,6 +8,8 @@ class Admin_Login extends CI_Controller {
 		
 		$this->load->model('m_impact', '', true);
 		$this->load->model('m_user', '', true);			
+
+        $this->load->model('Crud_model','m_crud',True);
 	}
 	
 	/*
@@ -23,6 +25,7 @@ class Admin_Login extends CI_Controller {
 		// if($this->session->userdata('name'))
 		// 	redirect(site_url().'c_main', 'location', 302);	
 		// 	$this->load->view('v_login');
+		  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
 
 		if($this->session->userdata('is_logged_in')){
 			redirect('admin/dashboard', 'location', 302);
@@ -40,6 +43,8 @@ class Admin_Login extends CI_Controller {
 
 function signup()
 	{
+
+		  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
 	//	if($this->session->userdata('name'))
 	//	redirect(site_url().'admin/c_main', 'location', 302);
 					

@@ -9,7 +9,7 @@
 									</a>
 								</li>
 								<li><span>Pages</span></li>
-								<li><span>User Profile</span></li>
+								<li><span>User Profile </span></li>
 							</ol>
 					
 							<a class="sidebar-right-toggle" data-open="sidebar-right"><i class="fa fa-chevron-left"></i></a>

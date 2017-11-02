@@ -12,14 +12,20 @@ class Admin_dashboard extends CI_Controller {
         $this->perPage = 5;
        // $this->starOrder=4;
 
-        $this->load->model('Crud_model','m_crud',True);
+        $this->load->model('Crud_model','m_crud',True); 
     }
     
     public function index()
     {
       
       $data=array();
+        
        $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+
+        $uid=$this->session->userdata('uid');
+        $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+      
+
 
      $data['form_title']=$this->replaceAll($this->uri->segment(1));
 
@@ -42,6 +48,11 @@ public function booking()
       
       $data=array();
  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+  $uid=$this->session->userdata('uid');
+   $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+// v_ticket
+   $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM v_ticket where u_id=$uid");
+
      $data['form_title']=$this->replaceAll($this->uri->segment(1));
       $data['panel_title']='All Bookings';
 
@@ -53,19 +64,22 @@ public function booking()
 
         $data['header']='admin/inc/v_header';
 
-        $data['main_content']='admin/booking/v_booking';
+        // $data['main_content']='admin/booking/v_booking';
+        $data['main_content']='admin/booking/v_list';
         //load the view
         $this->load->view('admin/v_admin_template', $data);
 
-        echo "Admin Dashboard";
+        //echo "Admin Dashboard";
     }
 // List Hotel
 
 public function list_hotels()
-    {
-      
+    {      
       $data=array();
  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+  $uid=$this->session->userdata('uid');
+ $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
       $data['panel_title']=$this->uri->segment(1);
 
@@ -89,7 +103,11 @@ public function list_vechicles()
     {
       
       $data=array();
- $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+      $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+      $uid=$this->session->userdata('uid');
+      $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+
+
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
       $data['panel_title']=$this->uri->segment(1);
 
@@ -124,6 +142,11 @@ public function guests()
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
       $data['panel_title']='All Guests';
 
+        $uid=$this->session->userdata('uid');
+        $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+      
+
+
 
         $data['head']='admin/head/v_head_table';
         $data['footer']='admin/footer/v_footer_table';
@@ -148,6 +171,10 @@ public function profile()
       $data=array();
  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
+       $uid=$this->session->userdata('uid');
+        $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+      
+
       $data['panel_title']='User Profile';
 
         $data['head']='admin/head/v_head_table';
@@ -173,6 +200,10 @@ public function invoice_print()
       $data=array();
  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
+       $uid=$this->session->userdata('uid');
+        $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+      
+
       $data['panel_title']='User Profile';
 
         $data['head']='admin/head/v_head_table';
@@ -200,9 +231,14 @@ public function invoice_print()
       $data=array();
  $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
+      
+       $uid=$this->session->userdata('uid');
+       $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+      
+
       $data['panel_title']='User Profile';
 
-        $data['head']='admin/head/v_head_table';
+        $data['head']='admin/head/v_head_form';
         $data['footer']='admin/footer/v_footer_table';
 
           $data['sidebar']='admin/inc/v_sidebar';
