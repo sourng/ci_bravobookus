@@ -25,3 +25,4 @@
 
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
+			<link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">

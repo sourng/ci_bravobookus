@@ -513,7 +513,7 @@ html .panel-primary .panel-heading {
 /* Toggle */
 .toggle label {
 	border-left-color: #0088cc;
-	color: #0088cc;
+	color: #fff;
 }
 
 .toggle.active > label {

@@ -9,28 +9,20 @@
                 </li>
                 <li class="active">New York City Hotels</li>
             </ul>
-
             <!--change search-->
-
             <?php
                 if(isset($change_search)){
                     $this->load->view($change_search);
                 }
-
             ?>
-
-
-
             <h3 class="booking-title">521 hotels in New York on Mar 22 - Apr 17 for 1 adult <span class="btn btn-default"><a class="popup-text" href="#search-dialog" data-effect="mfp-zoom-out">Change search</a></span></h3>
             <div class="row">
                 <div class="col-md-3">
-
                     <?php 
                         if(isset($menu_left_hotel)){
                             $this->load->view($menu_left_hotel);
                         }
                     ?>
-
                 </div>
                 <div class="col-md-9"> 
                     <div class="nav-drop booking-sort">
@@ -47,17 +39,10 @@
                             <li><a href="#">Number of Reviews</a>
                             </li>
                         </ul>
-
                     </div>
-                    
-
-                    
-                    <ul class="booking-list">       
-
-
+                    <ul class="booking-list">
                         <?php 
-                                foreach ($hotels as $hotel) {
-                               
+                                foreach ($hotels as $hotel) {                               
                             ?>
                         <li>
                             <a class="booking-item" href="<?php echo site_url(); ?>hotels.html/<?php echo $hotel['hotel_id']; ?>">
@@ -95,8 +80,7 @@
                                 <?php
                             }
 
-                      ?>
-                        
+                      ?>                        
                     </ul>
                     <div class="row">
                         <div class="col-md-6">

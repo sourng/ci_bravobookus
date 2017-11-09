@@ -36,28 +36,21 @@
             </header>
             <div class="row">
                 <div class="col-md-6">
-
                 <!--Slide-->   
                     <?php 
                         if(isset($slide)){
                             $this->load->view($slide);
                         }
                     ?>
-
                 </div>
-                <div class="col-md-6">
-
                 <!--Exeptional-->   
+                <div class="col-md-6">
                     <?php 
                         if(isset($exeptional)){
                             $this->load->view($exeptional);
                         }
-
                         echo $showfacil[0]['field2'];
                     ?>
-
-
-
                 </div>
 
             </div>
