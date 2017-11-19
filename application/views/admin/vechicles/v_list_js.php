@@ -7,7 +7,7 @@
 					<a href="<?php echo site_url(); ?>dashboard.html">								
 					</a>
 				</li>								
-				<div class="btn btn-default" data-toggle="modal" data-target="#myVechicleAdd" style="margin-right:10px;"><i class="fa fa-plus"> Add</i>
+				<div class="btn btn-default" data-toggle="modal" data-target="#myModalAdd" style="margin-right:10px;"><i class="fa fa-plus"> Add</i>
 <!-- 					<a href="<?php  $this->uri->segment(1); ?><?php echo site_url(); ?>add-vechicles.html"> 
 						<i class="fa fa-plus"></i>
 						Add
@@ -61,35 +61,19 @@
 					</tr>
 				</thead>
 				<tbody>
-										
-					<?php 
-					$i=1;
-					foreach ($vechicles_list as $vch) {
-						?>
-						<tr class="gradeA">
-						<td width="23%"><?php echo $i; ?></td>
-						<td width="25%"><?php echo $vch['company_name']; ?></td>
-						<td><?php echo $vch['code']; ?></td>
-						<td><?php echo $vch['vehicle_name']; ?></td>
-						<td class="center hidden-phone"><?php echo $vch['drivers']; ?></td>
-						<td class="center hidden-phone">
-							<a title="Edit <?php echo $vch['vehicle_name']; ?>" href="#<?php echo $vch['v_id']; ?>" class="btn btn-primary" role="button">
-							<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-
-							<a data-toggle="modal" data-target="#myVechicleView<?php echo $vch['v_id']; ?>" title="View <?php echo $vch['vehicle_name']; ?>" href="#<?php echo $vch['v_id']; ?>" class="btn btn-success" role="button">
-							<i class="fa fa-eye" aria-hidden="true"></i></a>
-							<a title="Block <?php echo $vch['vehicle_name']; ?>" href="#<?php echo $vch['v_id']; ?>" class="btn btn-warning" role="button">
-							<i class="fa fa-ban"></i></a>
-
+					<!-- <tr class="gradeX">
+						<td>Trident</td>
+						<td>Internet
+							Explorer 4.0
 						</td>
-					</tr>
-
-						<?php
-						$i++;
-					}
-
-					?>
+						<td>Win 95+</td>
+						<td class="center hidden-phone">4</td>
+						<td class="center hidden-phone">X</td>
+					</tr> -->
 					
+				<div ng-app="myapp" ng-controller="showVechicle">
+ 
+				</div>					
 				</tbody>
 			</table>
 		</div>
@@ -98,7 +82,7 @@
 </section>
 
 <!-- Modal Add Category -->
-<div class="modal fade" id="myVechicleAdd" role="dialog">
+<div class="modal fade" id="myModalAdd" role="dialog">
 <div class="modal-dialog modal-lg">
   <div class="modal-content">
     <div class="modal-header">
@@ -168,7 +152,7 @@
 				</div>
 			</div>				
 			<div class="form-group">
-				<label class="col-md-3 control-label">Choose Amennities</label>
+				<label class="col-md-3 control-label">Amennities</label>
 				<div class="col-md-6">
 					<select multiple data-plugin-selectTwo class="form-control populate" multiple="multiple" name="facilities[]">
 						<optgroup label="Select Facilities">
@@ -195,7 +179,7 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-md-3 control-label">Seat Layout</label>
+				<label class="col-md-3 control-label">Seat Type</label>
 				<div class="col-md-6">
 					<select data-plugin-selectTwo class="form-control populate placeholder" data-plugin-options='{ "placeholder": "Select a State", "allowClear": true }' name="seat_type" >
 						<optgroup label="Select one Company">
@@ -210,106 +194,20 @@
 					</select>
 				</div>
 			</div>
-			<div></div>		
+			<div></div>
+			<div ng-app="">
+<p>Name: <input type="text" ng-model="name"></p>
+<p ng-bind="name"></p>
 
 			<input type="submit" name="btnSave" class="btn btn-success" value="Save">						
 		</form>
     </div>
     <div class="modal-footer">
-</div>      
+
+
+</div>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
     </div>
   </div>
 </div>
-
-
-<!-- Modal Views-->
-<?php
-foreach ($vechicles_list as $vch) {
-						?>
-<div class="modal fade" id="myVechicleView<?php echo $vch['v_id']; ?>" role="dialog">
-	<div class="modal-dialog modal-lg">
-	  <div class="modal-content">
-		    <div class="modal-header">
-		      <button type="button" class="close" data-dismiss="modal">&times;</button>
-		      <h4 class="modal-title">Detail Vechicle of <?php echo $vch['company_name']; ?></h4>
-			    </div>
-			    <div class="modal-body">		
-					<table>			
-						<thead>
-							<tr>
-								<th width="35%"> Company Detail</th>
-								<th width="35%"> Vechicle Detail</th>
-								<th width="30%"> Map</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td><?php echo $vch['company_name']; ?></td>
-								<td><?php echo $vch['company_name']; ?></td>
-								<td><?php echo $vch['company_name']; ?></td>
-							</tr>
-						</tbody>
-					</table>
-			    </div>
-			    <div class="modal-footer">
-			</div>  
-
-
-<button class="tablink" onclick="openCity('London', this, 'red')" id="defaultOpen">Company</button>
-<button class="tablink" onclick="openCity('Paris', this, 'green')">Vechicle</button>
-<button class="tablink" onclick="openCity('Tokyo', this, 'blue')">Amenities</button>
-<button class="tablink" onclick="openCity('Oslo', this, 'orange')">Location</button>
-<div id="London" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
-</div>
-
-<div id="Paris" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
-
-<div id="Tokyo" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
-</div>
-
-<div id="Oslo" class="tabcontent">
-  <h3>Oslo</h3>
-  <p>Oslo is the capital of Norway.</p>
-</div>
-
-
-
-<script>
-function openCity(cityName,elmnt,color) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablink");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].style.backgroundColor = "";
-    }
-    document.getElementById(cityName).style.display = "block";
-    elmnt.style.backgroundColor = color;
-
-}
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
-</script>
-
-
-
-		</div>
-    </div>
-</div>
-
-
-
-
-
-<?php } ?>
-
 </div>

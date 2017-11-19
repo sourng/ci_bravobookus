@@ -19,51 +19,89 @@
 											<span>Dashboard</span>
 										</a>
 									</li>
-									<li>
-										<a href="<?php echo site_url(); ?>booking.html">
-											<span class="pull-right label label-primary">182</span>
-											<i class="fa fa-list-alt" aria-hidden="true"></i>
-											<span>Booking</span>
+									
+									<!-- Manage Booking -->
+									<li class="nav-parent">
+										<a>
+											<i class="fa fa-ticket" aria-hidden="true"></i>
+											<span>Manage Booking</span>
 										</a>
+										<ul class="nav nav-children">	
+											<li>
+												<a href="<?php echo site_url(); ?>vechicle-add.html" data-toggle="modal" data-target="#myVechicleAdd">
+													
+													<i class="fa fa-plus-circle" aria-hidden="true"></i> 
+													 Add Booking
+												</a>
+											</li>								
+											<li>
+												<a href="<?php echo site_url(); ?>booking.html">
+													<i class="fa fa-list" aria-hidden="true"></i> Recent Booking
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo site_url(); ?>booking.html/Confirmed">
+													<i class="fa fa-list" aria-hidden="true"></i> Confirmed Booking
+												</a>
+											</li>
+											<li>
+												<a href="<?php echo site_url(); ?>booking.html/Paid">
+													<i class="fa fa-list" aria-hidden="true"></i> Paid Booking
+												</a>
+											</li>
+
+											<li>
+												<a href="<?php echo site_url(); ?>booking.html/Canceled">
+													<i class="fa fa-ban" aria-hidden="true"></i>  Booking Canceled
+												</a>
+											</li>
+																					
+										
+										</ul>
 									</li>
-									<?php 
-									foreach($sidebar_menu as $rows){
-										?>
-										<li>
-										<a href="<?php echo site_url(); ?><?php echo $rows['controller_action'] ?>">
-											<span class="pull-right label label-primary">182</span>
-											<?php echo $rows['controller_icon'] ?>
-											<span><?php echo $rows['controller_name'] ?></span>
+
+
+
+
+
+									<!-- Manage Vechicles -->
+									<li class="nav-parent">
+										<a>
+											<i class="fa fa-taxi" aria-hidden="true"></i>
+											<span>Manage Vechicles</span>
 										</a>
+										<ul class="nav nav-children">	
+											<li>
+												<a href="<?php echo site_url(); ?>vechicle-add.html" data-toggle="modal" data-target="#myVechicleAdd">
+													
+													<i class="fa fa-plus-circle" aria-hidden="true"></i> 
+													 Add Vechicles
+												</a>
+											</li>								
+											<li>
+												<a href="<?php echo site_url(); ?>list-vechicles.html">
+													<i class="fa fa-list" aria-hidden="true"></i> Vechicles List
+												</a>
+											</li>
+
+											<li>
+												<a href="<?php echo site_url(); ?>vechicle-blocked.html">
+													<i class="fa fa-ban" aria-hidden="true"></i>  Vechicles Blocked
+												</a>
+											</li>
+																					
+										
+										</ul>
 									</li>
-
-										<?php
-									}
-
-									?>
-
-
-
 
 									<!-- Guests -->
 									<li>
 										<a href="<?php echo site_url(); ?>guests.html">
-											<span class="pull-right label label-primary">182</span>
+											<!-- <span class="pull-right label label-primary">182</span> -->
 											<i class="fa  fa-group " aria-hidden="true"></i>
 											<span>Guests</span>
 										</a>
 									</li>
-
-										<!-- Vechicle -->
-									<li>
-										<a href="<?php echo site_url(); ?>list-vechicles.html">
-											<span class="pull-right label label-primary">182</span>
-											<i class="fa  fa-group " aria-hidden="true"></i>
-											<span>Vechicles</span>
-										</a>
-									</li>
-
-
 
 
 									<li>
@@ -79,6 +117,12 @@
 										</a>
 									</li>
 
+									
+
+
+
+
+
 									<li class="nav-parent">
 										<a>
 											<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -86,9 +130,7 @@
 										</a>
 										<ul class="nav nav-children">
 											<li>
-												<a href="pages-signup.html">
-													 Sign Up
-												</a>
+												<a href="pages-signup.html"> Sign Up </a>
 											</li>
 											<li>
 												<a href="pages-signin.html">

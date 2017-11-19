@@ -63,9 +63,10 @@
 									<thead>
 										<tr>
 											<th>Booking Code</th>
-											<th>Booking Date</th>
+											<th >Booking Date</th>
 											<th>Guest Name</th>
 											<th class="hidden-phone">Seats</th>
+											<th class="hidden-phone">Amount</th>
 											<th class="hidden-phone">Options</th>
 										</tr>
 									</thead>
@@ -76,11 +77,42 @@
 										foreach ($v_ticket as $tk) {
 											?>
 											<tr class="gradeX">
-											<td><?php echo $tk['booking_code']; ?></td>
-											<td><?php echo $tk['booking_date']; ?></td>
-											<td><?php echo $tk['title']." ".$tk['name']; ?></td>
-											<td class="center hidden-phone"><?php echo $tk['seat_number']; ?></td>
-											<td class="center hidden-phone">X</td>
+											<td width="10%"><code data-toggle="tooltip" title="Booking Code"><?php echo $tk['booking_code']; ?></code></td>
+											<td width="10%"><?php echo $tk['booking_date']; ?></td>
+											<td width="25%"><p data-toggle="tooltip" title="Book Person">
+												<?php echo $tk['title']." ".$tk['passenger_name']; ?></p></td>
+											
+											<td width="15%" class="center hidden-phone"><?php echo $tk['seat_number']; ?></td>
+											<td width="25%"><?php echo $currency_name." ".$tk['price']; ?>
+												<?php 
+												if($tk['status']=="Paid"){
+													$st="success";
+												}elseif ($tk['status']=="Pending") {
+													$st="warning";
+												}elseif ($tk['status']=="Unpaid") {
+													# Unpaid
+													$st="danger";												
+												}elseif ($tk['status']=="Confirmed") {
+													$st="info";
+												}else{
+													$st="danger";
+												}
+												?>
+												<span class="label label-<?php echo $st; ?>"> 
+
+													<?php echo $tk['status']; ?>
+												</span>
+												</td>
+											<td class="center hidden-phone">
+													<a data-toggle="tooltip" title="Edit <?php echo $tk['passenger_name']; ?>" href="#<?php echo $tk['booking_code']; ?>" class="btn btn-primary" role="button">
+													<i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+
+													<a data-toggle="tooltip" title="Delete <?php echo $tk['passenger_name']; ?>" href="#<?php echo $tk['booking_code']; ?>" class="btn btn-danger" role="button">
+													<i class="fa fa-trash-o" aria-hidden="true"></i></a>
+													<a data-toggle="tooltip" title="Block <?php echo $tk['passenger_name']; ?>" href="#<?php echo $tk['booking_code']; ?>" class="btn btn-warning" role="button">
+													<i class="fa fa-ban"></i></a>
+
+												</td>
 										</tr>
 
 											<?php

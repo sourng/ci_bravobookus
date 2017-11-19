@@ -3,7 +3,7 @@
                     <div class="row">
                         <div class="col-md-3">
                             <a class="logo" href="<?php echo site_url(); ?>">
-                                <img src="<?php echo base_url(); ?>public/img/<?php echo $settings[0]['logo']; ?>" alt="Image Alternative text" title="Image Title" />
+                                <img  style="height: 100%;" src="<?php echo base_url(); ?>public/img/<?php echo $settings[0]['logo']; ?>" alt="Image Alternative text" title="Image Title" />
                             </a>
                         </div>
                         <div class="col-md-3 col-md-offset-2">

@@ -39,6 +39,9 @@ $route['admin/dashboard'] = 'Admin_dashboard/index';
 $route['dashboard.html'] = 'Admin_dashboard/index';
 
 $route['booking.html'] = 'Admin_dashboard/booking';
+// (:any)
+$route['booking.html/(:any)'] = 'Admin_dashboard/booking/$1';
+$route['booking.html/(:any)/(:any)'] = 'Admin_dashboard/booking/$1/$2';
 $route['guests.html'] = 'Admin_dashboard/guests';
 
 $route['profile.html'] = 'Admin_dashboard/profile';
@@ -57,6 +60,13 @@ $route['blocked-hotels.html'] = 'Admin_dashboard/blocked_hotels';
 // Vechicles Management
 // list_vechicles
 $route['list-vechicles.html'] = 'Admin_dashboard/list_vechicles';
+// list_vechicles_blocked
+$route['vechicle-blocked.html'] = 'Admin_dashboard/list_vechicles_blocked';
+
+//show_vechicles
+
+// $route['list-vechicles.html'] = 'Admin_dashboard/show_vechicles';
+
 $route['add-vechicles.html'] = 'Admin_dashboard/add_vechicle';
 
 

@@ -137,6 +137,7 @@ function signup()
 							'name' 				=> $result[0]['name'],
 							'email'     		=> $result[0]['email'],
 							'image'     		=> $result[0]['image'],
+							'company_id'     		=> $result[0]['company_id'],
 							'is_logged_in' 		=> TRUE
 					   );
 				$this->session->set_userdata($newdata);

@@ -22,7 +22,47 @@
 
 		<!-- Theme Custom CSS -->
 		<link rel="stylesheet" href="assets/stylesheets/theme-custom.css">
-
 		<!-- Head Libs -->
 		<script src="assets/vendor/modernizr/modernizr.js"></script>
-			<link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
+		<link href="assets/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+		<style>
+
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}
+
+#London {background-color:red;}
+#Paris {background-color:green;}
+#Tokyo {background-color:blue;}
+#Oslo {background-color:orange;}
+</style>
+
+<script type="text/javascript">
+ function userController($scope,$http) {
+     $scope.users = [];
+     $http.get('<?php echo site_url('angularjs/get_list'); ?>').success(function($data){ $scope.users=$data; });
+ }
+</script>
