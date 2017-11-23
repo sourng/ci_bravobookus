@@ -77,7 +77,12 @@
 	if(isset($footer)){
 		$this->load->view($footer);
 	}
+?>
 
+<?php 
+	if(isset($crud_vehicle)){
+		$this->load->view($crud_vehicle);
+	}
 ?>
 	</body>
 </html>

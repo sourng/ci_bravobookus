@@ -77,9 +77,8 @@
 	if(isset($footer)){
 		$this->load->view($footer);
 	}
-
 ?>
-	</body>
+</body>
 </html>
 
 <?php

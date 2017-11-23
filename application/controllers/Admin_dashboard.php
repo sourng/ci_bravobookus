@@ -6,6 +6,7 @@ class Admin_dashboard extends CI_Controller {
       parent::__construct();
       $this->load->model('M_Hotels','mh',TRUE);
       $this->load->model('M_Sourng','m_sourng',True);
+      $this->load->model('M_Vechicle','m_vechicle',True);
       $this->load->library('Ajax_pagination');
       $this->load->helper('text');
       $this->load->database();
@@ -55,31 +56,24 @@ class Admin_dashboard extends CI_Controller {
       $today = date("Y-m-d"); 
       $data['today']=$today;
       $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
-      // v_ticket
-   
+      // v_ticket   
       if($gro_id==1){
         if($param1 !=''){
            $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE status='".$param1."'");
         }else{
 
            $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE booking_date='". $today ."' order by booking_code DESC");
-        }       
-
+        }
       }else{       
         if($param1 !=''){
            $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE status='".$param1."'");
         }else{
 
            $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE booking_date='". $today ."' order by booking_code DESC");
-
             // $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket where c_id=$company_id AND status='".$param1."'");
-        }  
-
-      }
-    
-// $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE booking_date='". $today ."' order by booking_code DESC");
-      
-
+        }
+      }    
+          // $data['v_ticket']=$this->m_crud->get_by_sql("SELECT * FROM tbl_ticket WHERE booking_date='". $today ."' order by booking_code DESC");
       $data['form_title']=$this->replaceAll($this->uri->segment(1));
       $data['panel_title']='All Bookings';
       $data['head']='admin/head/v_head_table';
@@ -127,6 +121,7 @@ class Admin_dashboard extends CI_Controller {
       $data['panel_title']=$this->uri->segment(1);
       $data['head']='admin/head/v_head_table';
       $data['footer']='admin/footer/v_footer_table';
+      $data['crud_vehicle']='admin/footer/crud_vehicle';
       $data['sidebar']='admin/inc/v_sidebar';
       $data['sidebar_right']='admin/inc/v_sidebar_right';
       $data['header']='admin/inc/v_header';
@@ -135,11 +130,7 @@ class Admin_dashboard extends CI_Controller {
       $data['driver_names']=$this->m_crud->get_by_sql("SELECT * FROM tbl_driver");
       $data['seattypes']=$this->m_crud->get_by_sql("SELECT * FROM tbl_seat_type");
       $data['facilities']=$this->m_crud->get_by_sql("SELECT * FROM facilities");
-
-
-
-      $data['showfacil']=$this->m_crud->get_by_sql("SELECT * FROM test_add where id=15 ");    
-     
+      $data['showfacil']=$this->m_crud->get_by_sql("SELECT * FROM test_add where id=15 ");
      if($gro_id ==1){
        $sql_vechicles_com="SELECT p.company_name,v.* from tbl_vehicle as v INNER JOIN tbl_company as p ON p.company_id=v.company_id WHERE v.status=1";
      }else{
@@ -186,30 +177,78 @@ class Admin_dashboard extends CI_Controller {
          // echo "Admin Dashboard";
   }
   
-  public function add_vechicle(){
-      
-      $data=array();
-      $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
-      $data['form_title']=$this->replaceAll($this->uri->segment(1));      
-      $uid=$this->session->userdata('uid');
-      $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
-      $data['panel_title']='User Profile';
-      $data['head']='admin/head/v_head_form';
-      $data['footer']='admin/footer/v_footer_table';
-      $data['sidebar']='admin/inc/v_sidebar';
-      $data['sidebar_right']='admin/inc/v_sidebar_right';
-      $data['header']='admin/inc/v_header';
-      $data['companies']=$this->m_crud->get_by_sql("SELECT * FROM tbl_company");
-      $data['vehicle_type']=$this->m_crud->get_by_sql("SELECT * FROM tbl_vehicle_type");
-      $data['driver_names']=$this->m_crud->get_by_sql("SELECT * FROM tbl_driver");
-      $data['seattypes']=$this->m_crud->get_by_sql("SELECT * FROM tbl_seat_type");
-      $data['facilities']=$this->m_crud->get_by_sql("SELECT * FROM facilities");
-      $data['showfacil']=$this->m_crud->get_by_sql("SELECT * FROM test_add where id=15 ");
-      $data['main_content']='admin/vechicles/v_add';
-      //load the view
-      $this->load->view('admin/v_admin_template', $data);
-      // echo "Admin Dashboard";
+  public function vechile_add(){
+    $data = array(
+        'company_id'   => $this->input->post('company_id'),
+        'code'         => $this->input->post('code'),
+        'vehicle_name' => $this->input->post('vehicle_name'),
+        'vehicle_type' => $this->input->post('vehicle_type'),
+        'drivers'      => $this->input->post('drivers'),
+        'amenities'    => substr(implode('', $this->input->post('amenities')), 0),
+        'status'       => $this->input->post('hidden_status'),
+        'seats'        => $this->input->post('seats'),
+    );
+      $insert = $this->m_vechicle->vechile_add($data);
+            // $amenities = $this->input->post('amenities');
+            // foreach ($amenities as $amt) {
+            //     $data2 = array(
+            //         'amenities'   =>  $amt,
+            //     );
+            // }
+    echo json_encode(array("status" => TRUE));
   }
+
+  public function ajax_edit($id){
+    $data = $this->m_vechicle->get_by_id($id);
+    echo json_encode($data);
+  }
+
+  public function vechile_update(){
+    $data = array(
+        'company_id'   => $this->input->post('company_id'),
+        'code'         => $this->input->post('code'),
+        'vehicle_name' => $this->input->post('vehicle_name'),
+        'vehicle_type' => $this->input->post('vehicle_type'),
+        'drivers'      => $this->input->post('drivers'),
+        'amenities'    => substr(implode('', $this->input->post('amenities[]')), 0),
+        'status'       => $this->input->post('hidden_status'),
+        'seats'        => $this->input->post('seats'),
+    );
+    $this->m_vechicle->vechile_update(array('v_id' => $this->input->post('v_id')), $data);
+    echo json_encode(array("status" => TRUE));
+  }
+
+  public function vechile_delete($id){
+    $this->m_vechicle->delete_by_id($id);
+    echo json_encode(array("status" => TRUE));
+  }
+
+
+
+  // public function add_vechicle(){
+      
+  //     $data=array();
+  //     $data['settings']=$this->m_crud->get_by_sql("SELECT * FROM settings");
+  //     $data['form_title']=$this->replaceAll($this->uri->segment(1));      
+  //     $uid=$this->session->userdata('uid');
+  //     $data['sidebar_menu']=$this->m_crud->get_by_sql("SELECT * FROM tbl_controllers where uid=$uid");
+  //     $data['panel_title']='User Profile';
+  //     $data['head']='admin/head/v_head_form';
+  //     $data['footer']='admin/footer/v_footer_table';
+  //     $data['sidebar']='admin/inc/v_sidebar';
+  //     $data['sidebar_right']='admin/inc/v_sidebar_right';
+  //     $data['header']='admin/inc/v_header';
+  //     $data['companies']=$this->m_crud->get_by_sql("SELECT * FROM tbl_company");
+  //     $data['vehicle_type']=$this->m_crud->get_by_sql("SELECT * FROM tbl_vehicle_type");
+  //     $data['driver_names']=$this->m_crud->get_by_sql("SELECT * FROM tbl_driver");
+  //     $data['seattypes']=$this->m_crud->get_by_sql("SELECT * FROM tbl_seat_type");
+  //     $data['facilities']=$this->m_crud->get_by_sql("SELECT * FROM facilities");
+  //     $data['showfacil']=$this->m_crud->get_by_sql("SELECT * FROM test_add where id=15 ");
+  //     $data['main_content']='admin/vechicles/v_add';
+  //     //load the view
+  //     $this->load->view('admin/v_admin_template', $data);
+  //     // echo "Admin Dashboard";
+  // }
 
 // End Manage Vechickes 
 
