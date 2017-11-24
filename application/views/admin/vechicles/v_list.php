@@ -168,7 +168,7 @@
 					<div class="form-group"> <!--Choose Amennities-->
 						<label class="col-md-3 control-label">Choose Amennities</label>
 						<div class="col-md-6">
-							<select multiple data-plugin-selectTwo class="form-control populate" multiple="multiple" name="amenities[]" id="amenities">
+							<select data-plugin-selectTwo class="form-control populate" multiple="multiple" name="amenities[]" id="amenities">
 								<optgroup label="Select Amenities">
 								<?php 
 									foreach ($facilities as $facil) {
@@ -178,7 +178,6 @@
 									}
 								?>	
 								</optgroup>
-
 							</select>
 						</div>
 					</div>	

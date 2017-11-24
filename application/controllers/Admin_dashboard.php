@@ -177,24 +177,26 @@ class Admin_dashboard extends CI_Controller {
          // echo "Admin Dashboard";
   }
   
-  public function vechile_add(){
+  public function vechile_add(){    
+    $amenities = $this->input->post('amenities');
+    $newamt = '';
+    foreach($amenities as $amt)
+    {
+        $newamt = $newamt . $amt. ",";
+    }
+    $newamt = substr(trim($newamt), 0, -1);
+
     $data = array(
         'company_id'   => $this->input->post('company_id'),
         'code'         => $this->input->post('code'),
         'vehicle_name' => $this->input->post('vehicle_name'),
         'vehicle_type' => $this->input->post('vehicle_type'),
         'drivers'      => $this->input->post('drivers'),
-        'amenities'    => substr(implode('', $this->input->post('amenities')), 0),
+        'amenities'    => $newamt,
         'status'       => $this->input->post('hidden_status'),
         'seats'        => $this->input->post('seats'),
     );
       $insert = $this->m_vechicle->vechile_add($data);
-            // $amenities = $this->input->post('amenities');
-            // foreach ($amenities as $amt) {
-            //     $data2 = array(
-            //         'amenities'   =>  $amt,
-            //     );
-            // }
     echo json_encode(array("status" => TRUE));
   }
 
