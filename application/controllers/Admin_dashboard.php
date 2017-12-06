@@ -178,21 +178,21 @@ class Admin_dashboard extends CI_Controller {
   }
   
   public function vechile_add(){    
-    $amenities = $this->input->post('amenities');
-    $newamt = '';
-    foreach($amenities as $amt)
-    {
-        $newamt = $newamt . $amt. ",";
-    }
-    $newamt = substr(trim($newamt), 0, -1);
-
+    // $amenities = $this->input->post('amenities');
+    // $newamt = '';
+    // foreach($amenities as $amt)
+    // {
+    //     $newamt = $newamt . $amt. ",";
+    // }
+    // $newamt = substr(trim($newamt), 0, -1);
+// $newamt=substr(implode('', $this->input->post('amenities')), 0);
     $data = array(
         'company_id'   => $this->input->post('company_id'),
         'code'         => $this->input->post('code'),
         'vehicle_name' => $this->input->post('vehicle_name'),
         'vehicle_type' => $this->input->post('vehicle_type'),
         'drivers'      => $this->input->post('drivers'),
-        'amenities'    => $newamt,
+        'amenities'    => substr(implode('', $this->input->post('amenities')), 0),
         'status'       => $this->input->post('hidden_status'),
         'seats'        => $this->input->post('seats'),
     );
@@ -206,13 +206,15 @@ class Admin_dashboard extends CI_Controller {
   }
 
   public function vechile_update(){
+    $newamt=substr(implode('', $this->input->post('amenities')), 0);
+
     $data = array(
         'company_id'   => $this->input->post('company_id'),
         'code'         => $this->input->post('code'),
         'vehicle_name' => $this->input->post('vehicle_name'),
         'vehicle_type' => $this->input->post('vehicle_type'),
         'drivers'      => $this->input->post('drivers'),
-        'amenities'    => substr(implode('', $this->input->post('amenities[]')), 0),
+        'amenities'    => substr(implode('', $this->input->post('amenities')), 0),
         'status'       => $this->input->post('hidden_status'),
         'seats'        => $this->input->post('seats'),
     );
